@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Menu Lateral Simples</title>
+
+    <!-- Ícones do Google -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="sidebar.css" />
+  </head>
+
+  <body>
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral" id="menuLateral">
+      <nav class="menu" role="navigation" aria-label="Menu principal">
+        <a href="#" class="item-menu"
+          ><span class="material-icons">home</span><span>Início</span></a
+        >
+        <a href="#" class="item-menu ativo"
+          ><span class="material-icons">inventory_2</span
+          ><span>Itens Perdidos</span></a
+        >
+        <a href="#" class="item-menu"
+          ><span class="material-icons">add_box</span
+          ><span>Cadastrar Item</span></a
+        >
+        <a href="#" class="item-menu"
+          ><span class="material-icons">list_alt</span
+          ><span>Meus Registros</span></a
+        >
+
+        <div class="divisor-menu" aria-hidden="true"></div>
+
+        <a href="#" class="item-menu"
+          ><span class="material-icons">help_outline</span
+          ><span>Como Funciona</span></a
+        >
+        <a href="#" class="item-menu"
+          ><span class="material-icons">email</span><span>Contato</span></a
+        >
+
+        <div class="rodape-lateral">
+          <a href="#"
+            ><span class="material-icons">settings</span
+            ><span>Configurações</span></a
+          >
+        </div>
+      </nav>
+    </aside>
+
+    <!-- CABEÇALHO -->
+    <header>
+      <div class="menu-logo">
+        <button id="btn-menu" aria-label="Abrir menu">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="marca">
+          <img
+            src="https://aleatory.vtexassets.com/arquivos/logo-aleatory-alta-black.png?v=637503025466930000"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="info-usuario" aria-label="Usuário logado">
+        <div class="avatar-usuario" aria-hidden="true">
+          <span class="material-icons" style="font-size: 30px"
+            >account_circle</span
+          >
+        </div>
+        <div>Usuário 01</div>
+      </div>
+    </header>
+
+    <main></main>
+  </body>
+  <script src="side.js"></script>
+</html>

@@ -1,0 +1,116 @@
+/* Reset e fontes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Corpo */
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #fff3e6; /* tom mais quente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fundo da imagem */
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Container */
+.container {
+  width: 380px;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  color: #000;
+}
+
+/* Título */
+h2 {
+  font-size: 20px;
+  color: #1e1e1e;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #1e58a6;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+/* Inputs */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Checkbox */
+.checkbox {
+  margin-bottom: 22px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox input {
+  margin-right: 12px;
+}
+
+/* Botão */
+button {
+  width: 100%;
+  background-color: #1e58a6;
+  color: white;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #134080;
+}
+
+/* Link */
+.link {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 18px;
+}
+
+.link a {
+   color: #1e58a6;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+/* Esconder formulário */
+.hidden {
+  display: none;
+}
