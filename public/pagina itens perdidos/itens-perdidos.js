@@ -1,3 +1,5 @@
+// itens-perdidos.js (Frontend JavaScript atualizado com validação opcional para tipo de imagem)
+
 const botaoMenu = document.getElementById("btn-menu");
 const menuLateral = document.getElementById("menuLateral");
 
@@ -191,6 +193,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     const file = fileInput.files[0];
+    if (file && !file.type.startsWith("image/")) {
+      alert("Por favor, selecione uma imagem válida.");
+      return;
+    }
     const formData = new FormData();
     formData.append("id_item", currentItemId);
     formData.append("id_usuario", userId);
@@ -202,7 +208,12 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "POST",
       body: formData,
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         alert(data.message);
         // Limpar formulário e fechar container
@@ -243,6 +254,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (local) fullDesc += `\nLocal: ${local}`;
     if (date) fullDesc += `\nData: ${date}`;
     const file = contactFileInput.files[0];
+    if (file && !file.type.startsWith("image/")) {
+      alert("Por favor, selecione uma imagem válida.");
+      return;
+    }
     const formData = new FormData();
     formData.append("id_item", ""); // Vazio para null
     formData.append("id_usuario", userId);
@@ -254,7 +269,12 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "POST",
       body: formData,
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         alert(data.message);
         // Limpar formulário e fechar container
