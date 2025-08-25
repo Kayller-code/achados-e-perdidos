@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Verificação do e-mail
     let emailDomain;
     if (ra.startsWith("0001")) {
-      // Docente
-      emailDomain = "@senaimgdocente.com.br";
-    } else {
       // Aluno
       emailDomain = "@senaimgaluno.com.br";
+    } else {
+      // Docente
+      emailDomain = "@senaimgdocente.com.br";
     }
 
     if (!email.endsWith(emailDomain)) {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         alert(data.message);
         // Redirecionar para a área de login
-        window.location.href = "/pagina%20login/login.html";
+        window.location.href = "http://localhost:3000/login";
       } else {
         alert(data.message);
       }

@@ -88,15 +88,15 @@ DROP TABLE IF EXISTS `requisicoes`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `requisicoes` (
   `id_requisicao` int NOT NULL AUTO_INCREMENT,
-  `id_item` int NOT NULL,
+  `id_item` int DEFAULT NULL,
   `id_usuario` int NOT NULL,
   `descricao` text,
   `imagem` varchar(255) DEFAULT NULL,
   `status` enum('pendente','aprovado','reprovado') DEFAULT 'pendente',
   `criado_em` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_requisicao`),
-  KEY `id_item` (`id_item`),
   KEY `id_usuario` (`id_usuario`),
+  KEY `requisicoes_ibfk_1` (`id_item`),
   CONSTRAINT `requisicoes_ibfk_1` FOREIGN KEY (`id_item`) REFERENCES `itens` (`id_item`) ON DELETE CASCADE,
   CONSTRAINT `requisicoes_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -128,10 +128,11 @@ CREATE TABLE `usuarios` (
   `senha` varchar(255) NOT NULL,
   `tipo_usuario` enum('admin','usuario') DEFAULT 'usuario',
   `criado_em` datetime DEFAULT CURRENT_TIMESTAMP,
+  `imagem` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `ra` (`ra`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +141,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Kayller','0001066908','0001066908@senaimgaluno.com.br','33997029951','1234','usuario','2025-08-24 13:35:39'),(4,'Professor','01213432423','01213432423@senaimgdocente.com.br','33923029951','1234','admin','2025-08-24 16:29:16'),(5,'Kayller','0001323432124','0001323432124@senaimgaluno.com.br','33923029951','1234','usuario','2025-08-24 21:04:26');
+INSERT INTO `usuarios` VALUES (1,'Kayller','0001066908','0001066908@senaimgaluno.com.br','33997029951','1234','usuario','2025-08-24 13:35:39','/uploads/profile-1.jpg'),(4,'Professor','01213432423','01213432423@senaimgdocente.com.br','33923029951','1234','admin','2025-08-24 16:29:16',NULL),(5,'Kayller','0001323432124','0001323432124@senaimgaluno.com.br','33923029951','1234','usuario','2025-08-24 21:04:26',NULL),(6,'jons','00010735632','00010735632@senaimgaluno.com.br','33923029951','23123','usuario','2025-08-25 16:02:35','/uploads/profile-6.jpg');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -153,4 +154,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-25 13:39:43
+-- Dump completed on 2025-08-25 16:38:35

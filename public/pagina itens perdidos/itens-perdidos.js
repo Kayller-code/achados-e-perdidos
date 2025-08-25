@@ -1,5 +1,3 @@
-// itens-perdidos.js (específico para a página itens-perdidos, sem mudanças adicionais necessárias)
-
 const botaoMenu = document.getElementById("btn-menu");
 const menuLateral = document.getElementById("menuLateral");
 
@@ -52,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ".contact-container .file-name"
   );
   const submitBtn = document.querySelector(".item-container button");
+  const contactSubmitBtn = document.querySelector(".contact-container button");
   let items = []; // Armazenar itens do banco
   let currentItemId = null;
 
@@ -191,15 +190,17 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Você precisa estar logado para fazer requisições.");
       return;
     }
-    // Imagem é opcional, ignorada por enquanto (imagem NULL no banco)
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append("id_item", currentItemId);
+    formData.append("id_usuario", userId);
+    formData.append("descricao", desc);
+    if (file) {
+      formData.append("imagem", file);
+    }
     fetch("/requisicoes", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id_item: currentItemId,
-        id_usuario: userId,
-        descricao: desc,
-      }),
+      body: formData,
     })
       .then((res) => res.json())
       .then((data) => {
@@ -209,6 +210,66 @@ document.addEventListener("DOMContentLoaded", () => {
         fileInput.value = "";
         fileNameSpan.textContent = "Escolher arquivo";
         itemContainer.classList.remove("active");
+        overlay.style.display = "none";
+      })
+      .catch((err) => {
+        console.error("Erro ao enviar requisição:", err);
+        alert("Erro ao enviar. Tente novamente.");
+      });
+  });
+
+  // Enviar requisição ao clicar em "Enviar" no contact-container
+  contactSubmitBtn.addEventListener("click", () => {
+    const desc = contactContainer.querySelector("textarea").value.trim();
+    if (!desc) {
+      alert("Descreva o item com detalhes.");
+      return;
+    }
+    if (!userId) {
+      alert("Você precisa estar logado para fazer requisições.");
+      return;
+    }
+    const category = contactContainer.querySelector(
+      ".selects select:nth-child(1)"
+    ).value;
+    const local = contactContainer.querySelector(
+      ".selects select:nth-child(2)"
+    ).value;
+    const date = contactContainer.querySelector(
+      ".selects input[type='date']"
+    ).value;
+    let fullDesc = desc;
+    if (category) fullDesc += `\nCategoria: ${category}`;
+    if (local) fullDesc += `\nLocal: ${local}`;
+    if (date) fullDesc += `\nData: ${date}`;
+    const file = contactFileInput.files[0];
+    const formData = new FormData();
+    formData.append("id_item", ""); // Vazio para null
+    formData.append("id_usuario", userId);
+    formData.append("descricao", fullDesc);
+    if (file) {
+      formData.append("imagem", file);
+    }
+    fetch("/requisicoes", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert(data.message);
+        // Limpar formulário e fechar container
+        contactContainer.querySelector("textarea").value = "";
+        contactContainer.querySelector(
+          ".selects select:nth-child(1)"
+        ).selectedIndex = 0;
+        contactContainer.querySelector(
+          ".selects select:nth-child(2)"
+        ).selectedIndex = 0;
+        contactContainer.querySelector(".selects input[type='date']").value =
+          "";
+        contactFileInput.value = "";
+        contactFileNameSpan.textContent = "Escolher arquivo";
+        contactContainer.classList.remove("active", "item-desconhecido");
         overlay.style.display = "none";
       })
       .catch((err) => {

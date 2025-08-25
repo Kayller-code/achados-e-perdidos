@@ -71,7 +71,9 @@
         </div>
       </div>
       <div class="info-usuario">
-        <span class="material-icons avatar-usuario">account_circle</span>
+        <span id="avatar-usuario" class="material-icons avatar-usuario"
+          >account_circle</span
+        >
         <span id="nome-usuario">Usuário 01</span>
       </div>
       <div id="logout-menu" class="logout-menu">
@@ -99,86 +101,74 @@
         <!-- Conteúdo das Abas -->
         <div id="meus-dados" class="tab-content active">
           <h3>Histórico de itens cadastrados</h3>
-          <p>Aqui serão listados os itens cadastrados pelo usuário.</p>
+          <div id="historico-itens"></div>
           <div class="divisor-menu" aria-hidden="true"></div>
 
           <h3>Histórico de requisições enviadas</h3>
-          <p>Solicitações feitas pelo usuário.</p>
+          <div id="historico-requisicoes"></div>
           <div class="divisor-menu" aria-hidden="true"></div>
         </div>
 
         <div id="seguranca" class="tab-content">
           <h3>Alterar senha</h3>
-          <input type="password" placeholder="Nova senha" /><br /><br />
-          <input type="password" placeholder="Confirmar senha" /><br /><br />
-          <button>Salvar</button>
+          <form id="form-alterar-senha">
+            <input
+              type="password"
+              id="nova-senha"
+              placeholder="Nova senha"
+              required
+            /><br /><br />
+            <input
+              type="password"
+              id="confirmar-senha"
+              placeholder="Confirmar senha"
+              required
+            /><br /><br />
+            <button type="submit">Salvar</button>
+          </form>
           <div class="divisor-menu" aria-hidden="true"></div>
-
-          <h3>Últimos logins</h3>
-          <div class="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Dispositivo</th>
-                  <th>Data</th>
-                  <th>Hora</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Chrome - Windows</td>
-                  <td>20/08/2025</td>
-                  <td>14:32</td>
-                  <td>
-                    <span class="status-cell status-aprovado">Aprovado</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Firefox - Mobile</td>
-                  <td>19/08/2025</td>
-                  <td>09:15</td>
-                  <td>
-                    <span class="status-cell status-pendente">Pendente</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Safari - Mac</td>
-                  <td>18/08/2025</td>
-                  <td>16:45</td>
-                  <td>
-                    <span class="status-cell status-reprovado">Reprovado</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
 
         <div id="informacoes" class="tab-content">
-          <label>Nome completo</label><br />
-          <input type="text" placeholder="Digite seu nome" /><br /><br />
+          <form id="form-informacoes-pessoais">
+            <label>Nome completo</label><br />
+            <input
+              type="text"
+              id="nome-completo"
+              placeholder="Digite seu nome"
+              required
+            /><br /><br />
 
-          <label>RA</label><br />
-          <input type="text" value="2023001234" disabled /><br /><br />
-          <div class="divisor-menu" aria-hidden="true"></div>
+            <label>RA</label><br />
+            <input type="text" id="ra" disabled /><br /><br />
+            <div class="divisor-menu" aria-hidden="true"></div>
 
-          <label>E-mail</label><br />
-          <input type="email" placeholder="Digite seu e-mail" /><br /><br />
+            <label>E-mail</label><br />
+            <input
+              type="email"
+              id="email"
+              placeholder="Digite seu e-mail"
+              required
+            /><br /><br />
 
-          <label>Telefone</label><br />
-          <input type="tel" placeholder="Digite seu telefone" /><br /><br />
-          <div class="divisor-menu" aria-hidden="true"></div>
+            <label>Telefone</label><br />
+            <input
+              type="tel"
+              id="telefone"
+              placeholder="Digite seu telefone"
+            /><br /><br />
+            <div class="divisor-menu" aria-hidden="true"></div>
 
-          <label>Foto de perfil</label><br />
-          <div class="upload-container">
-            <label class="custom-file-upload">
-              <span class="material-symbols-outlined">upload</span>
-              <span class="file-name">Escolher arquivo</span>
-              <input type="file" id="imagem" />
-            </label>
-          </div>
-          <button>Salvar</button>
+            <label>Foto de perfil</label><br />
+            <div class="upload-container">
+              <label class="custom-file-upload">
+                <span class="material-symbols-outlined">upload</span>
+                <span class="file-name">Escolher arquivo</span>
+                <input type="file" id="imagem" accept="image/*" />
+              </label>
+            </div>
+            <button type="submit">Salvar</button>
+          </form>
         </div>
       </div>
     </main>

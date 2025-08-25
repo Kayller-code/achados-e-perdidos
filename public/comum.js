@@ -1,4 +1,4 @@
-// comum.js (presente em todas as páginas, ajustado para forçar login em páginas restritas e esconder logout se não logado)
+// comum.js (presente em todas as páginas, ajustado para forçar login em páginas restritas e esconder logout se não logado e carregar avatar/nome em todas as páginas)
 
 document.addEventListener("DOMContentLoaded", function () {
   const userName = localStorage.getItem("userName");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (userName) {
-    document.getElementById("nome-usuario").textContent = userName;
+    carregarAvatarENome(); // Carrega avatar e nome no header (comum a todas as páginas)
   }
 
   const userTipo = localStorage.getItem("userTipo");
@@ -63,3 +63,27 @@ document.addEventListener("DOMContentLoaded", function () {
     logoutMenu.style.display = "none";
   }
 });
+
+// Função para carregar avatar e nome no header (chamada em todas as páginas)
+async function carregarAvatarENome() {
+  const userId = localStorage.getItem("userId");
+  if (!userId) return;
+
+  try {
+    const response = await fetch(`/users/${userId}`);
+    if (!response.ok) {
+      throw new Error("Erro ao carregar dados do usuário.");
+    }
+    const user = await response.json();
+
+    document.getElementById("nome-usuario").textContent =
+      user.nome || "Usuário";
+
+    const avatarElem = document.getElementById("avatar-usuario");
+    if (user.imagem && avatarElem.tagName.toLowerCase() === "span") {
+      avatarElem.outerHTML = `<img id="avatar-usuario" src="${user.imagem}" alt="Avatar do usuário" class="avatar-usuario">`;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}

@@ -1,3 +1,4 @@
+/* configuracoes.css */
 :root {
   /* Cores base - organizadas por tonalidade */
   --preto: #000;
@@ -21,6 +22,14 @@
   --fundo: #f5f5f5;
   --card-bg: #fbfbfb;
   --overlay: rgba(0, 0, 0, 0.5);
+
+  /* Cores para status */
+  --status-pendente-bg: rgba(255, 165, 0, 0.1);
+  --status-pendente-color: #ffa500;
+  --status-encontrado-bg: rgba(40, 167, 69, 0.1);
+  --status-encontrado-color: #28a745;
+  --status-padrão-bg: rgba(128, 128, 128, 0.1);
+  --status-padrão-color: #808080;
 }
 
 * {
@@ -104,9 +113,23 @@ header {
 .avatar-usuario {
   width: 32px;
   height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--cinza-claro); /* Cor do ícone padrão */
+  background: transparent;
+}
+
+.avatar-usuario img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-usuario.material-icons {
+  font-size: 28px; /* Tamanho do ícone para caber bem no círculo */
 }
 
 /* MENU LATERAL FIXO */
@@ -396,43 +419,95 @@ button:hover {
   margin: 15px 0;
 }
 
-/* Tabela */
+/* Tabela (estilização ajustada para evitar espremedura e desalinhamento) */
 .table-container {
   width: 100%;
   overflow-x: auto;
   margin-top: 20px;
   border-radius: 6px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--cinza-borda);
+  box-shadow: 0 1px 3px var(--cinza-sombra-suave);
 }
 
 .table-container table {
   width: 100%;
   border-collapse: collapse;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   text-align: left;
-  color: #5a5a5a;
+  color: var(--cinza-escuro);
+  table-layout: fixed; /* Evita que colunas sejam espremidas por conteúdo longo */
 }
 
 .table-container th,
 .table-container td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #ddd;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--cinza-borda);
+  vertical-align: middle; /* Alinha verticalmente o conteúdo no meio */
+}
+
+.table-container th:first-child,
+.table-container td:first-child {
+  width: 15%; /* Largura fixa para ID */
+}
+
+.table-container th:nth-child(2),
+.table-container td:nth-child(2) {
+  width: 70%; /* Largura maior para Descrição */
+  word-wrap: break-word; /* Quebra palavras longas */
+  hyphens: auto; /* Adiciona hifens automáticos para quebras */
+}
+
+.table-container th:last-child,
+.table-container td:last-child {
+  width: 15%; /* Largura para Status */
+  text-align: center; /* Centraliza o status */
 }
 
 .table-container th {
-  color: #5a5a5a;
-  background-color: #f9f9f9;
+  background-color: var(--azul-claro);
+  color: var(--azul-principal);
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-table-container tbody tr:last-child td {
-  border-bottom: 1px solid #ddd; /* Mantém a borda na última linha */
+.table-container tbody tr:nth-child(even) {
+  background-color: var(--cinza-sombra-suave);
+}
+
+.table-container tbody tr:hover {
+  background-color: var(--azul-claro);
+  transition: background-color 0.2s ease;
+}
+
+.table-container tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .status-cell {
-  font-weight: normal;
-  color: #5a5a5a;
+  font-weight: 500;
+  padding: 4px 12px; /* Ajuste de padding para melhor alinhamento */
+  border-radius: 16px; /* Mais arredondado para formato de pílula */
+  text-align: center;
+  display: inline-block;
+  min-width: 80px;
+  line-height: 1.2; /* Ajusta altura da linha para centralizar verticalmente */
+}
+
+.status-pendente {
+  background-color: var(--status-pendente-bg);
+  color: var(--status-pendente-color);
+}
+
+.status-encontrado {
+  background-color: var(--status-encontrado-bg);
+  color: var(--status-encontrado-color);
+}
+
+.status-default {
+  background-color: var(--status-padrão-bg);
+  color: var(--status-padrão-color);
 }
 
 /* Responsividade para a tabela */
@@ -445,6 +520,7 @@ table-container tbody tr:last-child td {
   .table-container table {
     display: block;
     width: 100%;
+    table-layout: auto; /* Reseta para mobile */
   }
 
   .table-container thead {
@@ -460,11 +536,11 @@ table-container tbody tr:last-child td {
 
   .table-container tr {
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--cinza-borda);
     border-radius: 6px;
     padding: 10px;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background: var(--branco);
+    box-shadow: 0 2px 4px var(--cinza-sombra-suave);
   }
 
   .table-container td {
@@ -472,6 +548,7 @@ table-container tbody tr:last-child td {
     border-bottom: 1px solid #eee;
     position: relative;
     padding-left: 45%;
+    text-align: left; /* Alinha texto à esquerda no mobile */
   }
 
   .table-container td:last-child {
@@ -486,7 +563,13 @@ table-container tbody tr:last-child td {
     padding-right: 10px;
     white-space: nowrap;
     font-weight: 600;
-    color: #5a5a5a;
+    color: var(--azul-principal);
+  }
+
+  .status-cell {
+    display: inline-block;
+    text-align: center;
+    width: auto;
   }
 }
 

@@ -19,7 +19,7 @@ body {
   background-color: var(--fundo);
   color: var(--cinza-escuro);
   overflow: hidden; /* mantém o body sem scroll */
-  height: 100vh;    /* ocupa toda a tela */
+  height: 100vh; /* ocupa toda a tela */
   display: flex;
   flex-direction: column;
 }
@@ -88,15 +88,13 @@ header {
   font-weight: 600;
   font-size: 14px;
 }
-
-.avatar-usuario {
+#avatar-usuario {
   width: 32px;
   height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 /* MENU LATERAL FIXO */
 .menu-lateral {
   position: fixed;
