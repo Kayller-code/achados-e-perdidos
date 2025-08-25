@@ -1,3 +1,5 @@
+// Backend (Fastify atualizado com a rota /requisicoes corrigida)
+
 const fastify = require("fastify")();
 const fastifyStatic = require("@fastify/static");
 const path = require("path");
@@ -216,32 +218,64 @@ fastify.post("/items", async (request, reply) => {
   }
 });
 
-// Rota para cadastro de requisições (sem mudanças)
+// Rota atualizada para cadastro de requisições (com suporte a upload de imagem)
 fastify.post("/requisicoes", async (request, reply) => {
-  const { id_item, id_usuario, descricao } = request.body;
-
-  if (!id_item || !id_usuario || !descricao) {
-    return reply.status(400).send({
-      message: "ID do item, ID do usuário e descrição são obrigatórios.",
-    });
-  }
-
-  const query =
-    "INSERT INTO requisicoes (id_item, id_usuario, descricao, imagem) VALUES (?, ?, ?, NULL)";
-
   try {
+    // Acessar os campos do FormData
+    const data = await request.body;
+    const id_item = data.id_item && data.id_item.value !== "" ? parseInt(data.id_item.value) : null;
+    const id_usuario = parseInt(data.id_usuario?.value);
+    const descricao = data.descricao?.value;
+    const file = data.imagem ? await data.imagem.toBuffer() : null;
+    let filePath = null;
+
+    // Validação dos campos obrigatórios
+    if (!id_usuario || !descricao) {
+      return reply.status(400).send({
+        message: "ID do usuário e descrição são obrigatórios.",
+      });
+    }
+
+    // Processar upload de imagem, se houver
+    if (file) {
+      const originalName = data.imagem.filename;
+      const ext = path.extname(originalName);
+      const fileName = `requisicao-${Date.now()}${ext}`;
+      const uploadDir = path.join(__dirname, "public/uploads");
+
+      // Criar pasta uploads se não existir
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+        console.log(`Pasta criada: ${uploadDir}`);
+      }
+
+      // Salvar o arquivo
+      filePath = path.join(uploadDir, fileName);
+      fs.writeFileSync(filePath, file);
+      filePath = `/uploads/${fileName}`;
+      console.log(`Imagem salva em: ${filePath}`);
+    }
+
+    // Inserir no banco de dados
+    const query =
+      "INSERT INTO requisicoes (id_item, id_usuario, descricao, imagem) VALUES (?, ?, ?, ?)";
+    const params = [id_item, id_usuario, descricao, filePath];
+
     await new Promise((resolve, reject) => {
-      db.query(query, [id_item, id_usuario, descricao], (err, results) => {
-        if (err) reject(err);
-        else resolve(results);
+      db.query(query, params, (err, results) => {
+        if (err) {
+          console.error("Erro na query SQL:", err);
+          reject(err);
+        } else {
+          resolve(results);
+        }
       });
     });
-    return reply
-      .status(201)
-      .send({ message: "Requisição enviada com sucesso!" });
+
+    return reply.status(201).send({ message: "Requisição enviada com sucesso!" });
   } catch (err) {
-    console.error("Erro ao inserir requisição:", err);
-    return reply.status(500).send({ message: "Erro ao enviar requisição." });
+    console.error("Erro ao processar requisição:", err);
+    return reply.status(500).send({ message: "Erro ao enviar requisição.", error: err.message });
   }
 });
 
