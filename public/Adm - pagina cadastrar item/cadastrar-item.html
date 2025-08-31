@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastra Item</title>
+    <link
+      rel="stylesheet"
+      href="/Adm%20-%20pagina%20cadastrar%20item/cadastrar-item.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="comum.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-left">
+        <button id="btn-menu">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="menu-logo">
+          <div class="marca">
+            <img src="logo.jpeg" alt="Logo" />
+          </div>
+        </div>
+      </div>
+      <div class="info-usuario">
+        <span id="avatar-usuario" class="material-icons avatar-usuario"
+          >account_circle</span
+        >
+        <span id="nome-usuario">Usuário 01</span>
+      </div>
+      <div id="logout-menu" class="logout-menu">
+        <a href="#" id="btn-logout">Sair</a>
+      </div>
+    </header>
+
+    <nav id="menuLateral" class="menu-lateral">
+      <nav class="menu">
+        <a href="/inicio"><span class="material-icons">home</span>Início</a>
+        <a href="/itens-perdidos"
+          ><span class="material-icons">inventory_2</span>Itens Perdidos</a
+        >
+        <div class="divisor-menu"></div>
+        <a class="ativo"
+          ><span class="material-icons">add_box</span>Cadastrar Item</a
+        >
+        <a href="/meus-registros"
+          ><span class="material-icons">list_alt</span>Meus Registros</a
+        >
+        <a href="/solicitacoes">
+          <span class="material-icons">checklist</span>
+          Solicitações
+        </a>
+        <div class="divisor-menu"></div>
+        <a href="/pagina%20como%20funciona/como_funciona.html"
+          ><span class="material-icons">help_outline</span>Como Funciona</a
+        >
+        <a href="/contato"><span class="material-icons">email</span>Contato</a>
+        <div class="rodape-lateral">
+          <a href="/configuracao"
+            ><span class="material-icons">settings</span>Configurações</a
+          >
+        </div>
+      </nav>
+    </nav>
+
+    <main>
+      <h2 class="estilo">Cadastrar Item</h2>
+      <form class="formulario-cadastrar">
+        <p class="titulo">Criação de item perdido</p>
+        <label for="nome-produto">Nome do Produto</label>
+        <input type="text" id="nome-produto" placeholder="Produto" />
+
+        <div class="formulario-grid">
+          <div>
+            <label for="local">Local</label>
+            <select id="local">
+              <option>Selecione um local</option>
+            </select>
+          </div>
+          <div>
+            <label for="categoria">Categoria</label>
+            <select id="categoria">
+              <option>Selecione uma categoria</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="formulario-grid">
+          <div>
+            <label for="descricao">Descrição</label>
+            <textarea
+              id="descricao"
+              placeholder="Descreva o item para comparação"
+            ></textarea>
+          </div>
+          <div>
+            <label for="data-encontro">Data de Encontro</label>
+            <input type="date" id="data-encontro" />
+          </div>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </main>
+
+    <script src="/Adm%20-%20pagina%20cadastrar%20item/cadastrar-item.js"></script>
+    <script src="comum.js"></script>
+  </body>
+</html>

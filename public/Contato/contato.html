@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contato</title>
+
+    <!-- Ícones do Google -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/contato/contato.css" />
+    <link rel="stylesheet" href="comum.css" />
+  </head>
+
+  <body>
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral" id="menuLateral">
+      <nav class="menu" role="navigation" aria-label="Menu principal">
+        <a href="/inicio" class="item-menu"
+          ><span class="material-icons">home</span><span>Início</span></a
+        >
+
+        <a href="/itens-perdidos" class="item-menu"
+          ><span class="material-icons">inventory_2</span
+          ><span>Itens Perdidos</span></a
+        >
+
+        <div class="divisor-menu" aria-hidden="true"></div>
+
+        <a href="/cadastrar-item" class="item-menu"
+          ><span class="material-icons">add_box</span
+          ><span>Cadastrar Item</span></a
+        >
+        <a href="/meus-registros" class="item-menu"
+          ><span class="material-icons">list_alt</span
+          ><span>Meus Registros</span></a
+        >
+        <a href="/solicitacoes">
+          <span class="material-icons">checklist</span>
+          Solicitações
+        </a>
+
+        <div class="divisor-menu" aria-hidden="true"></div>
+
+        <a href="/pagina%20como%20funciona/como_funciona.html" class="item-menu"
+          ><span class="material-icons">help_outline</span
+          ><span>Como Funciona</span></a
+        >
+        <a class="item-menu ativo"
+          ><span class="material-icons">email</span><span>Contato</span></a
+        >
+        <div class="rodape-lateral">
+          <a href="/configuracao"
+            ><span class="material-icons">settings</span
+            ><span>Configurações</span></a
+          >
+        </div>
+      </nav>
+    </aside>
+
+    <!-- CABEÇALHO -->
+    <header>
+      <div class="menu-logo">
+        <button id="btn-menu" aria-label="Abrir menu">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="marca">
+          <img src="logo.jpeg" alt="" />
+        </div>
+      </div>
+
+      <div class="info-usuario" aria-label="Usuário logado">
+        <div class="avatar" aria-hidden="true">
+          <span
+            id="avatar-usuario"
+            class="material-icons"
+            style="font-size: 30px"
+            >account_circle</span
+          >
+        </div>
+        <div id="nome-usuario">Usuário 01</div>
+      </div>
+      <div id="logout-menu" class="logout-menu">
+        <a href="#" id="btn-logout">Sair</a>
+      </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+      <h1>Fale Conosco</h1>
+      <form id="form-contato">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="seu@email.com" required />
+
+        <label for="mensagem">Mensagem</label>
+        <textarea
+          id="mensagem"
+          placeholder="Escreva sua dúvida ou mensagem"
+          required
+        ></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <h2>Dúvidas Frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>
+            Como faço para cadastrar um item perdido?<i class="material-icons"
+              >expand_more</i
+            >
+          </summary>
+          <p>
+            Para cadastrar um item perdido, acesse a seção "Cadastrar Item" no
+            menu lateral, preencha o formulário com as informações do item, como
+            descrição, local onde foi perdido e foto, se disponível. Em seguida,
+            clique em "Enviar" para registrar.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Como posso anunciar um item que encontrei?<i class="material-icons"
+              >expand_more</i
+            >
+          </summary>
+          <p>
+            Se você encontrou um item, vá para "Cadastrar Item" e selecione a
+            opção de item encontrado. Forneça detalhes sobre o item e o local
+            onde foi encontrado para que o dono possa identificá-lo.
+          </p>
+        </details>
+        <details>
+          <summary>
+            O que devo fazer se meu item foi encontrado?<i
+              class="material-icons"
+              >expand_more</i
+            >
+          </summary>
+          <p>
+            Se você vir seu item na lista de "Itens Perdidos", entre em contato
+            com o anunciante através das informações fornecidas no anúncio para
+            combinar a devolução.
+          </p>
+        </details>
+        <details>
+          <summary>
+            O site tem alguma taxa para anunciar?<i class="material-icons"
+              >expand_more</i
+            >
+          </summary>
+          <p>
+            Não, o Startech é gratuito para todos os usuários. Não cobramos
+            taxas para cadastrar ou anunciar itens.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Posso confiar nos anúncios do site?<i class="material-icons"
+              >expand_more</i
+            >
+          </summary>
+          <p>
+            Nós incentivamos os usuários a verificarem as informações e
+            encontrarem em locais públicos. Embora façamos o possível para
+            manter a plataforma segura, a responsabilidade final é dos usuários.
+          </p>
+        </details>
+        <details>
+          <summary>
+            O que acontece se ninguém reclamar o item?<i class="material-icons"
+              >expand_more</i
+            >
+          </summary>
+          <p>
+            Se ninguém reclamar o item após um período razoável (ex: 30 dias),
+            você pode decidir doá-lo ou descartá-lo conforme as leis locais.
+          </p>
+        </details>
+      </div>
+      <p class="no-found">Não encontrou aqui?<br />Envie no nosso e-mail.</p>
+    </main>
+
+    <script src="/contato/contato.js"></script>
+    <script src="comum.js"></script>
+  </body>
+</html>

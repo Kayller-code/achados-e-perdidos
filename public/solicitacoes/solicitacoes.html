@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/comum.css" />
+    <link rel="stylesheet" href="/solicitacoes/solicitacoes.css" />
+    <title>Solicitações - Administração</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="menu-logo">
+        <button id="btn-menu" aria-label="Abrir menu">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="marca">
+          <img src="/logo.jpeg" alt="Logo" />
+        </div>
+      </div>
+      <div class="info-usuario">
+        <span id="avatar-usuario" class="material-icons avatar-usuario"
+          >account_circle</span
+        >
+        <span id="nome-usuario">Usuário 01</span>
+      </div>
+      <div class="logout-menu" id="logout-menu">
+        <a href="#" id="btn-logout">Sair</a>
+      </div>
+    </header>
+
+    <div class="menu-lateral" id="menuLateral">
+      <nav class="menu">
+        <a href="/inicio"> <span class="material-icons">home</span> Início </a>
+        <a href="/itens-perdidos">
+          <span class="material-icons">inventory_2</span>
+          Itens Perdidos
+        </a>
+        <div class="divisor-menu"></div>
+        <a href="/cadastrar-item">
+          <span class="material-icons">add_box</span>
+          Cadastrar Item
+        </a>
+        <a href="/meus-registros">
+          <span class="material-icons">list_alt</span>
+          Meus Registros
+        </a>
+        <a class="ativo">
+          <span class="material-icons">checklist</span>
+          Solicitações
+        </a>
+        <div class="divisor-menu"></div>
+        <a href="/como_funciona">
+          <span class="material-icons">help_outline</span>
+          Como Funciona
+        </a>
+        <a href="/contato">
+          <span class="material-icons">email</span>
+          Contato
+        </a>
+      </nav>
+      <div class="rodape-lateral">
+        <a href="/configuracao">
+          <span class="material-icons">settings</span>
+          Configurações
+        </a>
+      </div>
+    </div>
+
+    <main>
+      <div class="input-container">
+        <h1>Solicitações</h1>
+        <div class="input-wrapper">
+          <input type="text" placeholder="Pesquisar item perdido..." />
+          <span class="material-icons icon-search">search</span>
+          <span class="material-icons icon-filter">filter_alt</span>
+        </div>
+        <p>Visualize e gerencie as solicitações de itens perdidos.</p>
+        <div class="ordenacao">
+          <label for="ordenar-por">Ordenar por:</label>
+          <select id="ordenar-por">
+            <option value="solicitacoes">Mais solicitações</option>
+            <option value="data-recente">Data mais recente</option>
+            <option value="data-antiga">Data mais antiga</option>
+            <option value="alfabetica">Ordem alfabética</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-container" id="grid-container">
+        <!-- Os cards serão gerados dinamicamente pelo JavaScript -->
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="analise-container" id="analise-container">
+        <a class="voltar">
+          <span class="material-symbols-outlined">arrow_back_ios_new</span>
+          <p>Voltar</p>
+        </a>
+        <h2 id="analise-titulo"></h2>
+        <p id="analise-local"></p>
+        <p id="analise-data"></p>
+        <p id="analise-categoria"></p>
+        <p id="analise-descricao"></p>
+        <img
+          id="analise-imagem"
+          src=""
+          alt="Imagem do item"
+          style="
+            display: none;
+            max-width: 100%;
+            border-radius: 4px;
+            margin-bottom: 10px;
+          "
+        />
+        <div class="solicitacoes-container" id="solicitacoes-container">
+          <!-- As solicitações serão carregadas dinamicamente -->
+        </div>
+      </div>
+    </main>
+
+    <div class="filtros">
+      <select>
+        <option selected disabled>Selecione a categoria</option>
+        <option>Dispositivo eletrônico</option>
+        <option>Roupas e calçados</option>
+        <option>Acessórios</option>
+        <option>Utensílios</option>
+        <option>Documentos</option>
+        <option>Bolsas e Mochilas</option>
+        <option>Chaves</option>
+        <option>Material escolar</option>
+        <option>Outros</option>
+      </select>
+      <select>
+        <option selected disabled>Selecione o local</option>
+        <option>Laboratório</option>
+        <option>Biblioteca</option>
+        <option>Sala 201</option>
+        <option>Sala 202</option>
+        <option>Corredor 01</option>
+        <option>Corredor 02</option>
+      </select>
+      <input type="date" id="filtro-data" />
+      <button>Limpar filtros</button>
+    </div>
+
+    <script src="/comum.js"></script>
+    <script src="/solicitacoes/solicitacoes.js"></script>
+  </body>
+</html>

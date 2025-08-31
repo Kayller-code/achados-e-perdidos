@@ -1,0 +1,234 @@
+:root {
+  --preto: #000;
+  --azul: #0066b2;
+  --azul-claro: rgba(31, 121, 188, 0.15);
+  --cinza-claro: #828282;
+  --cinza-escuro: #2d2d2d;
+  --fundo: #f5f5f5;
+  --branco: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  background-color: var(--fundo);
+  color: var(--cinza-escuro);
+  overflow: hidden; /* tira scroll da página */
+}
+
+/* CABEÇALHO FIXO */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--branco);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 50;
+}
+
+/* BOTÃO DO MENU */
+#btn-menu {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#btn-menu .material-icons {
+  font-size: 26px;
+  color: var(--preto);
+}
+
+/* LOGO */
+.menu-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.marca {
+  width: 90px;
+  height: 30px;
+  left: 0;
+  color: var(--preto);
+}
+.marca img {
+  width: 100%;
+  height: 100%;
+}
+
+/* INFORMAÇÕES DO USUÁRIO */
+.info-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--azul);
+  color: var(--azul);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.avatar-usuario {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MENU LATERAL FIXO */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  padding-top: 60px; /* espaço para o cabeçalho */
+  background: var(--branco);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
+  overflow: hidden; /* tira scroll */
+  transition: transform 0.28s ease;
+  z-index: 40;
+  transform: translateX(0); /* Padrão: visível */
+}
+
+.menu-lateral.escondido {
+  transform: translateX(-100%); /* Esconde a sidebar */
+}
+
+/* LINHA DIVISÓRIA NA BARRA LATERAL */
+.menu-lateral::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.01));
+}
+
+nav.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 6px 16px;
+}
+
+nav.menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 4px 10px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 10px;
+  color: var(--cinza-claro);
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+nav.menu a .material-icons {
+  font-size: 20px;
+  color: var(--preto);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav.menu a:hover {
+  background: var(--azul-claro);
+  color: var(--azul);
+}
+
+nav.menu a.ativo {
+  background: var(--azul-claro);
+  color: var(--preto);
+  font-weight: 600;
+}
+
+nav.menu a.ativo .material-icons {
+  color: var(--preto);
+}
+
+.divisor-menu {
+  height: 1px;
+  margin: 12px 8px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.03), transparent);
+}
+
+/* RODAPÉ DA BARRA LATERAL */
+.rodape-lateral {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  padding: 0 6px;
+}
+
+.rodape-lateral a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin: 0 10px;
+  color: var(--cinza-claro);
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.rodape-lateral .material-icons {
+  color: var(--preto);
+}
+
+/* ÁREA PRINCIPAL DO CONTEÚDO */
+main {
+  padding: 84px 20px;
+  min-height: 100vh;
+  transition: margin-left 0.28s ease; /* Transição suave para o main */
+}
+
+.menu-lateral:not(.escondido) ~ main {
+  margin-left: 220px; /* Margem quando o menu está aberto */
+}
+
+.menu-lateral.escondido ~ main {
+  margin-left: 0; /* Sem margem quando o menu está fechado */
+}
+
+/* Responsivo - Mobile */
+@media (max-width: 900px) {
+  .menu-lateral {
+    transform: translateX(-100%);
+  }
+
+  .menu-lateral.aberto {
+    transform: translateX(0);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  main {
+    margin-left: 0;
+    padding-top: 84px;
+  }
+}

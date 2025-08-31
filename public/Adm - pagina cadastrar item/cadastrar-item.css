@@ -1,0 +1,462 @@
+:root {
+  --preto: #000;
+  --azul: #0066b2;
+  --azul-claro: rgba(31, 121, 188, 0.15);
+  --cinza-claro: #828282;
+  --cinza-escuro: #2d2d2d;
+  --fundo: #f5f5f5;
+  --branco: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  background-color: var(--fundo);
+  color: var(--cinza-escuro);
+  overflow-x: hidden;
+}
+
+/* CABEÇALHO FIXO - MODIFICADO */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--branco);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 50;
+}
+
+/* NOVO: Container para botão e logo */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* BOTÃO DO MENU */
+#btn-menu {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#btn-menu .material-icons {
+  font-size: 26px;
+  color: var(--preto);
+}
+
+/* LOGO - MODIFICADO */
+.menu-logo {
+  display: flex;
+  align-items: center;
+}
+
+.marca {
+  width: 40px;
+  height: 40px;
+  left: 0;
+  color: var(--preto);
+}
+
+.marca img {
+  width: 100%;
+  height: 100%;
+}
+
+/* INFORMAÇÕES DO USUÁRIO */
+.info-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--azul);
+  color: var(--azul);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.avatar-usuario {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--azul);
+}
+
+/* MENU LATERAL FIXO */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  padding-top: 60px;
+  background: var(--branco);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
+  overflow-y: auto;
+  transition: transform 0.28s ease;
+  z-index: 40;
+  transform: translateX(0);
+}
+
+.menu-lateral.escondido {
+  transform: translateX(-100%);
+}
+
+/* LINHA DIVISÓRIA NA BARRA LATERAL */
+.menu-lateral::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.01));
+}
+
+nav.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 6px 16px;
+}
+
+nav.menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 4px 10px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 10px;
+  color: var(--cinza-claro);
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+nav.menu a .material-icons {
+  font-size: 20px;
+  color: var(--preto);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav.menu a:hover {
+  background: var(--azul-claro);
+  color: var(--azul);
+}
+
+nav.menu a.ativo {
+  background: var(--azul-claro);
+  color: var(--preto);
+  font-weight: 600;
+}
+
+nav.menu a.ativo .material-icons {
+  color: var(--preto);
+}
+
+.divisor-menu {
+  height: 1px;
+  margin: 12px 8px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.03), transparent);
+}
+
+/* RODAPÉ DA BARRA LATERAL */
+.rodape-lateral {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  padding: 0 6px;
+}
+
+.rodape-lateral a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin: 0 10px;
+  color: var(--cinza-claro);
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.rodape-lateral .material-icons {
+  color: var(--preto);
+}
+
+/* ÁREA PRINCIPAL DO CONTEÚDO - MODIFICADO */
+main {
+  padding: 84px 20px 20px;
+  min-height: 90vh;
+  transition: margin-left 0.28s ease;
+  margin-left: 220px;
+  /* Largura da sidebar */
+}
+
+/* Quando a sidebar está escondida */
+.menu-lateral.escondido~main {
+  margin-left: 0;
+}
+
+/* Ajuste do formulário para expandir corretamente */
+.formulario-cadastrar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  /* Alterado para 100% */
+  max-width: none;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  min-height: 52vh;
+  transition: width 0.28s ease;
+  /* Adicionada transição suave */
+}
+
+/* Ajuste do título - MODIFICADO */
+.estilo {
+  margin-left: 0;
+  font-size: 30px;
+  text-align: left;
+  width: 100%;
+  /* Alterado para 100% */
+  margin: 0 auto 20px auto;
+  padding-left: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.formulario-cadastrar label {
+  display: block;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  color: #5a5a5a;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.formulario-cadastrar input,
+.formulario-cadastrar select,
+.formulario-cadastrar textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1.5px solid #c0c0c0;
+  color: #5a5a5a;
+  font-size: 14px;
+  background-color: #fafafa;
+}
+
+.formulario-cadastrar input::placeholder,
+.formulario-cadastrar textarea::placeholder {
+  color: #999;
+}
+
+.formulario-cadastrar input:focus,
+.formulario-cadastrar select:focus,
+.formulario-cadastrar textarea:focus {
+  outline: none;
+  border-color: var(--azul);
+  background-color: #fff;
+}
+
+.formulario-grid {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.formulario-grid>div {
+  flex: 1;
+  min-width: 250px;
+}
+
+.formulario-cadastrar textarea {
+  min-height: 110px;
+  resize: none;
+  width: 100%;
+}
+
+/* Botão de envio */
+.formulario-cadastrar button {
+  background-color: #1e90ff;
+  color: #f8f8f8;
+  border: none;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(30, 144, 255, 0.2);
+  width: 100%;
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+.formulario-cadastrar button:hover {
+  background-color: #104e8b;
+  box-shadow: 0 4px 8px rgba(16, 78, 139, 0.3);
+}
+
+.titulo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Responsivo - Mobile - NÃO ALTERADO (como solicitado) */
+@media (max-width: 900px) {
+  .menu-lateral {
+    transform: translateX(-100%);
+    width: 80%;
+    max-width: 220px;
+  }
+
+  .menu-lateral.aberto {
+    transform: translateX(0);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  main {
+    margin-left: 0 !important;
+    /* Força margin-left 0 em mobile */
+    padding: 84px 15px 20px;
+    width: 100%;
+  }
+
+  .formulario-cadastrar {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  .estilo {
+    width: 100%;
+    /* Largura total em mobile */
+    margin: 0 auto 15px auto;
+    padding-left: 15px;
+    /* Adiciona um pequeno espaçamento */
+  }
+
+  .formulario-grid {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .formulario-grid>div {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .estilo {
+    font-size: 24px;
+  }
+
+  .info-usuario {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .avatar-usuario {
+    width: 24px;
+    height: 24px;
+  }
+
+  .avatar-usuario .material-icons {
+    font-size: 20px;
+  }
+
+  /* Garantir que o menu não afete o layout em mobile quando escondido */
+  .menu-lateral:not(.aberto)~main {
+    margin-left: 0 !important;
+  }
+}
+
+/* Para telas muito pequenas (smartphones pequenos) */
+@media (max-width: 480px) {
+  header {
+    padding: 0 10px;
+  }
+
+  .header-left {
+    gap: 8px;
+  }
+
+  .marca {
+    width: 70px;
+  }
+
+  .info-usuario span:not(.material-icons) {
+    display: none;
+  }
+
+  .formulario-cadastrar label {
+    font-size: 14px;
+  }
+
+  .formulario-cadastrar input,
+  .formulario-cadastrar select,
+  .formulario-cadastrar textarea {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .titulo {
+    font-size: 18px;
+  }
+
+  .formulario-cadastrar button {
+    max-width: 100%;
+  }
+
+  .estilo {
+    font-size: 22px;
+    padding-left: 10px;
+  }
+}
+
+/* Para tablets - MODIFICADO */
+@media (min-width: 901px) and (max-width: 1024px) {
+  .menu-lateral {
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px;
+  }
+
+  .menu-lateral.escondido~main {
+    margin-left: 0;
+  }
+
+  .formulario-grid>div {
+    min-width: 200px;
+  }
+}

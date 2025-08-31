@@ -1,0 +1,241 @@
+<!-- itens-perdidos.html (Sem modificações, mas incluído para completude) -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <!-- Link do Font Awesome (CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/pagina%20itens%20perdidos/itens-perdidos.css"
+    />
+    <link rel="stylesheet" href="comum.css" />
+    <title>Itens Perdidos</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="menu-logo">
+        <button id="btn-menu" aria-label="Abrir menu">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="marca">
+          <img src="logo.jpeg" alt="" />
+        </div>
+      </div>
+      <div class="info-usuario">
+        <span id="avatar-usuario" class="material-icons avatar-usuario"
+          >account_circle</span
+        >
+        <span id="nome-usuario">Usuário 01</span>
+      </div>
+      <div id="logout-menu" class="logout-menu">
+        <a href="#" id="btn-logout">Sair</a>
+      </div>
+    </header>
+
+    <div class="menu-lateral" id="menuLateral">
+      <nav class="menu">
+        <a href="/inicio">
+          <span class="material-icons">home</span>
+          Início
+        </a>
+
+        <a class="ativo">
+          <span class="material-icons">inventory_2</span>
+          Itens Perdidos
+        </a>
+
+        <div class="divisor-menu"></div>
+
+        <a href="/cadastrar-item">
+          <span class="material-icons">add_box</span>
+          Cadastrar Item
+        </a>
+        <a href="/meus-registros">
+          <span class="material-icons">list_alt</span>
+          Meus Registros
+        </a>
+        <a href="/solicitacoes">
+          <span class="material-icons">checklist</span>
+          Solicitações
+        </a>
+
+        <div class="divisor-menu"></div>
+
+        <a href="/como_funciona">
+          <span class="material-icons">help_outline</span>
+          Como Funciona
+        </a>
+        <a href="/contato">
+          <span class="material-icons">email</span>
+          Contato
+        </a>
+        <div class="rodape-lateral">
+          <a href="/configuracao">
+            <span class="material-icons">settings</span>
+            Configurações
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <main>
+      <div class="input-container">
+        <h1>Itens perdidos</h1>
+        <div class="input-wrapper">
+          <input type="text" placeholder="Pesquisar item perdido..." />
+          <span class="material-icons icon-search">search</span>
+          <span class="material-icons icon-filter">filter_alt</span>
+        </div>
+        <p>
+          Não lembra aonde ou quando perdeu?
+          <span class="contact-link" id="open-contact"
+            >Entre em contato aqui</span
+          >
+        </p>
+      </div>
+
+      <div class="grid-container">
+        <!-- Cards serão gerados dinamicamente via JS -->
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="item-container">
+        <a class="voltar">
+          <span class="material-symbols-outlined">arrow_back_ios_new</span>
+          <p>Voltar</p>
+        </a>
+        <h2>
+          <!-- Icone e título serão populados via JS -->
+        </h2>
+        <p class="item-local">
+          <strong>Local:</strong>
+          <!-- Será populado via JS -->
+        </p>
+        <p class="item-data">
+          <strong>Data:</strong>
+          <!-- Será populado via JS -->
+        </p>
+        <p class="item-categoria">
+          <strong>Categoria:</strong>
+          <!-- Será populado via JS -->
+        </p>
+        <p class="texto3">Esse item é seu? Preencha</p>
+        <p class="texto">Descreva o item com detalhes:</p>
+        <textarea></textarea>
+        <div class="upload-container">
+          <p class="texto">Anexe uma imagem do item:</p>
+          <label class="custom-file-upload">
+            <span class="material-symbols-outlined">upload</span>
+            <span class="file-name">Escolher arquivo</span>
+            <input type="file" id="imagem" />
+          </label>
+        </div>
+        <div class="container-botao">
+          <button>Enviar</button>
+          <p class="aviso">
+            Um e-mail atualizando o status do seu item chegará em até 48h.
+          </p>
+        </div>
+      </div>
+
+      <div class="item-container contact-container" id="contact-container">
+        <a href="#" class="voltar">
+          <span class="material-symbols-outlined">arrow_back_ios_new</span>
+          Voltar
+        </a>
+        <h2>Item Desconhecido</h2>
+        <p class="texto2">
+          Caso não saiba o local e/ou a hora em que o item foi perdido, preencha
+          apenas os dados que souber. Descreva o objeto com o máximo de detalhes
+          possível, incluindo características únicas, marcas, cores e estado de
+          conservação. Se possível, anexe uma foto do item para facilitar a
+          identificação.
+        </p>
+        <p class="texto">Descreva o item com detalhes:</p>
+        <textarea></textarea>
+        <div class="selects">
+          <select>
+            <option value="">Selecione a categoria</option>
+            <option>Dispositivo eletrônico</option>
+            <option>Roupas e calçados</option>
+            <option>Acessórios</option>
+            <option>Utensílios</option>
+            <option>Documentos</option>
+            <option>Bolsas e Mochilas</option>
+            <option>Chaves</option>
+            <option>Material escolar</option>
+            <option>Outros</option>
+          </select>
+          <select>
+            <option value="">Selecione o local</option>
+            <option>Laboratório</option>
+            <option>Biblioteca</option>
+            <option>Sala 201</option>
+            <option>Sala 202</option>
+            <option>Corredor 01</option>
+            <option>Corredor 02</option>
+          </select>
+          <input type="date" id="data-encontro" />
+        </div>
+        <div class="file-row">
+          <p class="texto">Anexe uma imagem do item:</p>
+          <label class="custom-file-upload">
+            <span class="material-symbols-outlined">upload</span>
+            <span class="file-name">Escolher arquivo</span>
+            <input type="file" id="contact-imagem" />
+          </label>
+        </div>
+
+        <button>Enviar</button>
+        <p class="aviso">
+          Um e-mail atualizando o status do seu item chegará em até 48h.
+        </p>
+      </div>
+    </main>
+
+    <div class="filtros">
+      <select>
+        <option selected disabled>Selecione a categoria</option>
+        <option>Dispositivo eletrônico</option>
+        <option>Roupas e calçados</option>
+        <option>Acessórios</option>
+        <option>Utensílios</option>
+        <option>Documentos</option>
+        <option>Bolsas e Mochilas</option>
+        <option>Chaves</option>
+        <option>Material escolar</option>
+        <option>Outros</option>
+      </select>
+
+      <select>
+        <option selected disabled>Selecione o local</option>
+        <option>Laboratório</option>
+        <option>Biblioteca</option>
+        <option>Sala 201</option>
+        <option>Sala 202</option>
+        <option>Corredor 01</option>
+        <option>Corredor 02</option>
+      </select>
+
+      <input type="date" id="filtro-data" />
+
+      <button>Limpar filtros</button>
+    </div>
+
+    <script src="/pagina%20itens%20perdidos/itens-perdidos.js"></script>
+    <script src="comum.js"></script>
+  </body>
+</html>

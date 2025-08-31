@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="pagina%20index/inicio.css" />
+    <link rel="stylesheet" href="comum.css" />
+    <title>Inicio</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="menu-logo">
+        <button id="btn-menu" aria-label="Abrir menu">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="marca">
+          <img src="/logo.jpeg" alt="" />
+        </div>
+      </div>
+      <div class="info-usuario">
+        <span id="avatar-usuario" class="material-icons avatar-usuario"
+          >account_circle</span
+        >
+        <span id="nome-usuario">Usuário 01</span>
+      </div>
+      <div id="logout-menu" class="logout-menu">
+        <a href="#" id="btn-logout">Sair</a>
+      </div>
+    </header>
+
+    <div class="menu-lateral" id="menuLateral">
+      <nav class="menu">
+        <a class="ativo">
+          <span class="material-icons">home</span>
+          Início
+        </a>
+        <a href="/itens-perdidos">
+          <span class="material-icons">inventory_2</span>
+          Itens Perdidos
+        </a>
+        <div class="divisor-menu"></div>
+        <a href="/cadastrar-item">
+          <span class="material-icons">add_box</span>
+          Cadastrar Item
+        </a>
+        <a href="/meus-registros">
+          <span class="material-icons">list_alt</span>
+          Meus Registros
+        </a>
+        <a href="/solicitacoes">
+          <span class="material-icons">checklist</span>
+          Solicitações
+        </a>
+        <div class="divisor-menu"></div>
+        <a href="/como_funciona">
+          <span class="material-icons">help_outline</span>
+          Como Funciona
+        </a>
+        <a href="/contato">
+          <span class="material-icons">email</span>
+          Contato
+        </a>
+        <div class="rodape-lateral">
+          <a href="/configuracao">
+            <span class="material-icons">settings</span>
+            Configurações
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <main class="wrap">
+      <h1>Bem vindo(a) ao sistema de achados e perdidos!</h1>
+      <section class="grid">
+        <div class="card">
+          <div class="icon">
+            <span class="material-symbols-outlined">inventory_2</span>
+          </div>
+          <div class="value">218</div>
+          <div class="label">Produtos Cadastrados</div>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <span class="material-symbols-outlined">check_circle</span>
+          </div>
+          <div class="value">147</div>
+          <div class="label">Itens Devolvidos</div>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <span class="material-symbols-outlined">people</span>
+          </div>
+          <div class="value">67</div>
+          <div class="label">Usuários Ativos</div>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <span class="material-symbols-outlined">calendar_today</span>
+          </div>
+          <div class="value">02/08/2025</div>
+          <div class="label">Última Atualização</div>
+        </div>
+      </section>
+
+      <section class="items-section">
+        <h2>Itens Recentes Perdidos</h2>
+        <div class="grid-items">
+          <div class="card-item">
+            <div class="icon"><i class="fa-solid fa-glass-water"></i></div>
+            <a href="#" class="item-title">Garrafa azul</a>
+            <p class="item-details">
+              Encontrado próximo ao refeitório
+              <span class="item-date">27/07/2025</span>
+            </p>
+          </div>
+
+          <div class="card-item">
+            <div class="icon"><i class="fa-solid fa-shirt"></i></div>
+            <a href="#" class="item-title">Casaco preto</a>
+            <p class="item-details">
+              Deixado na sala 12 <span class="item-date">27/07/2025</span>
+            </p>
+          </div>
+
+          <div class="card-item">
+            <div class="icon"><i class="fa-solid fa-glasses"></i></div>
+            <a href="#" class="item-title">Óculos</a>
+            <p class="item-details">
+              Achado no laboratório de informática
+              <span class="item-date">27/07/2025</span>
+            </p>
+          </div>
+
+          <div class="card-item">
+            <div class="icon"><i class="fa-solid fa-pencil"></i></div>
+            <a href="#" class="item-title">Estojo rosa</a>
+            <p class="item-details">
+              Encontrado na sala 07 <span class="item-date">26/07/2025</span>
+            </p>
+          </div>
+
+          <div class="card-item">
+            <div class="icon"><i class="fa-solid fa-utensils"></i></div>
+            <a href="#" class="item-title">Lancheira</a>
+            <p class="item-details">
+              Encontrado próximo ao refeitório
+              <span class="item-date">27/07/2025</span>
+            </p>
+          </div>
+
+          <div class="card-item">
+            <div class="icon"><i class="fa-solid fa-headphones"></i></div>
+            <a href="#" class="item-title">Fone de ouvido</a>
+            <p class="item-details">
+              Encontrado próximo ao refeitório
+              <span class="item-date">27/07/2025</span>
+            </p>
+          </div>
+          <div class="card-item">
+            <div class="icon"><i class="fa-solid fa-pencil"></i></div>
+            <a href="#" class="item-title">Estojo rosa</a>
+            <p class="item-details">
+              Encontrado na sala 07 <span class="item-date">26/07/2025</span>
+            </p>
+          </div>
+
+          <div class="card-item">
+            <div class="icon"><i class="fa-solid fa-utensils"></i></div>
+            <a href="#" class="item-title">Lancheira</a>
+            <p class="item-details">
+              Encontrado próximo ao refeitório
+              <span class="item-date">27/07/2025</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="pagina%20index/inicio.js"></script>
+    <script src="comum.js"></script>
+  </body>
+</html>

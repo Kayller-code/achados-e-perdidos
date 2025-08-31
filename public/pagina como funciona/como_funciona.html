@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Menu Lateral Simples</title>
+
+    <!-- Ícones do Google -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/pagina%20como%20funciona/como_funciona.css" />
+    <link rel="stylesheet" href="/comum.css" />
+  </head>
+
+  <body>
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral" id="menuLateral">
+      <nav class="menu" role="navigation" aria-label="Menu principal">
+        <a href="/inicio" class="item-menu"
+          ><span class="material-icons">home</span><span>Início</span></a
+        >
+        <a href="/itens-perdidos" class="item-menu"
+          ><span class="material-icons">inventory_2</span
+          ><span>Itens Perdidos</span></a
+        >
+
+        <div class="divisor-menu" aria-hidden="true"></div>
+
+        <a href="/cadastrar-item" class="item-menu"
+          ><span class="material-icons">add_box</span
+          ><span>Cadastrar Item</span></a
+        >
+        <a href="/meus-registros" class="item-menu"
+          ><span class="material-icons">list_alt</span
+          ><span>Meus Registros</span></a
+        >
+        <a href="/solicitacoes">
+          <span class="material-icons">checklist</span>
+          Solicitações
+        </a>
+
+        <div class="divisor-menu" aria-hidden="true"></div>
+
+        <a class="item-menu ativo"
+          ><span class="material-icons">help_outline</span
+          ><span>Como Funciona</span></a
+        >
+        <a href="/contato" class="item-menu"
+          ><span class="material-icons">email</span><span>Contato</span></a
+        >
+
+        <div class="rodape-lateral">
+          <a href="/configuracao"
+            ><span class="material-icons">settings</span
+            ><span>Configurações</span></a
+          >
+        </div>
+      </nav>
+    </aside>
+
+    <!-- CABEÇALHO -->
+    <header>
+      <div class="menu-logo">
+        <button id="btn-menu" aria-label="Abrir menu">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="marca">
+          <img src="logo.jpeg" alt="" />
+        </div>
+      </div>
+
+      <div class="info-usuario" aria-label="Usuário logado">
+        <div class="avatar" aria-hidden="true">
+          <span
+            id="avatar-usuario"
+            class="material-icons"
+            style="font-size: 30px"
+            >account_circle</span
+          >
+        </div>
+        <div id="nome-usuario">Usuário 01</div>
+      </div>
+      <div id="logout-menu" class="logout-menu">
+        <a href="#" id="btn-logout">Sair</a>
+      </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+      <section class="content">
+        <h1>Como Funciona</h1>
+
+        <div class="step">
+          <span class="step-number">01</span>
+          <div>
+            <h2>Um item é encontrado por alguém</h2>
+            <p>
+              Quando alguém encontra um objeto perdido dentro da escola, deve
+              levá-lo até a secretaria ou setor pedagógico responsável.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">02</span>
+          <div>
+            <h2>Um funcionário cadastra o item no sistema</h2>
+            <p>
+              O objeto é guardado em local adequado e seguro, evitando perda ou
+              danos. Somente funcionários autorizados podem registrar o item.
+              Eles inserem informações como tipo do objeto, características
+              visuais, data em que foi entregue e local aproximado onde foi
+              encontrado.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">03</span>
+          <div>
+            <h2>Item fica visível na lista pública do site</h2>
+            <p>
+              Após o cadastro, o item aparece automaticamente na seção “Itens
+              Perdidos” do site, onde pode ser visualizado por todos os alunos e
+              funcionários. Quem perdeu algo pode navegar pelo sistema,
+              encontrar seu item e clicar nele para solicitar a retirada.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">04</span>
+          <div>
+            <h2>Solicitação com confirmação online</h2>
+            <p>
+              Ao clicar no item, o usuário preenche um pequeno formulário com
+              características únicas (ex: cor exata, marca, etiquetas, detalhes
+              específicos) e envia para validação.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">05</span>
+          <div>
+            <h2>A escola analisa e responde por e-mail</h2>
+            <p>
+              Um funcionário verifica as informações enviadas e decide se há
+              correspondência com o item armazenado.
+            </p>
+            <ul>
+              <li>
+                Se for confirmado, o sistema envia um e-mail autorizando a
+                retirada do item na secretaria.
+              </li>
+              <li>
+                Se houver dúvidas ou for negado, a pessoa recebe um e-mail com a
+                resposta negativa e instruções para tentar novamente.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">06</span>
+          <div>
+            <h2>Retirada presencial</h2>
+            <p>
+              Com a autorização recebida, o dono pode ir até a secretaria para
+              retirar o item, apresentando um documento ou comprovação, se
+              necessário.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">07</span>
+          <div>
+            <h2>Item é marcado como devolvido</h2>
+            <p>
+              Após a entrega, o item é retirado da lista pública e arquivado no
+              sistema como “Devolvido”.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/pagina%20como%20funciona/como_funciona.js"></script>
+    <script src="/comum.js"></script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!-- TCC/public/Adm - pagina registro de item/meus-registros.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/Adm%20-%20pagina%20registro%20de%20item/registros.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="comum.css" />
+    <title>Meus Registros</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-left">
+        <button id="btn-menu">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="menu-logo">
+          <div class="marca">
+            <img src="logo.jpeg" alt="Logo" />
+          </div>
+        </div>
+      </div>
+      <div class="info-usuario">
+        <span id="avatar-usuario" class="material-icons avatar-usuario"
+          >account_circle</span
+        >
+        <span id="nome-usuario">Usuário 01</span>
+      </div>
+      <div id="logout-menu" class="logout-menu">
+        <a href="#" id="btn-logout">Sair</a>
+      </div>
+    </header>
+
+    <nav id="menuLateral" class="menu-lateral">
+      <nav class="menu">
+        <a href="/inicio"><span class="material-icons">home</span>Início</a>
+        <a href="/itens-perdidos"
+          ><span class="material-icons">inventory_2</span>Itens Perdidos</a
+        >
+        <div class="divisor-menu"></div>
+        <a href="/cadastrar-item"
+          ><span class="material-icons">add_box</span>Cadastrar Item</a
+        >
+        <a class="ativo"
+          ><span class="material-icons">list_alt</span>Meus Registros</a
+        >
+        <a href="/solicitacoes">
+          <span class="material-icons">checklist</span>
+          Solicitações
+        </a>
+        <div class="divisor-menu"></div>
+        <a href="/pagina%20como%20funciona/como_funciona.html"
+          ><span class="material-icons">help_outline</span>Como Funciona</a
+        >
+        <a href="/contato"><span class="material-icons">email</span>Contato</a>
+        <div class="rodape-lateral">
+          <a href="/configuracao"
+            ><span class="material-icons">settings</span>Configurações</a
+          >
+        </div>
+      </nav>
+    </nav>
+
+    <main>
+      <h2>Meus Registros</h2>
+
+      <div class="formulario-filtro">
+        <p class="titulo">Filtrar por um item cadastrado</p>
+        <label for="filtro-nome">Nome do Produto</label>
+        <input type="text" id="filtro-nome" placeholder="Produto" />
+
+        <div class="filtro-grid">
+          <div>
+            <label for="filtro-local">Local</label>
+            <select id="filtro-local">
+              <option value="">Selecione um local</option>
+              <option>Laboratório</option>
+              <option>Biblioteca</option>
+              <option>Sala 201</option>
+              <option>Sala 202</option>
+              <option>Corredor 01</option>
+              <option>Corredor 02</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro-categoria">Categoria</label>
+            <select id="filtro-categoria">
+              <option value="">Selecione uma categoria</option>
+              <option>Dispositivo eletrônico</option>
+              <option>Roupas e calçados</option>
+              <option>Acessórios</option>
+              <option>Utensílios</option>
+              <option>Documentos</option>
+              <option>Bolsas e Mochilas</option>
+              <option>Chaves</option>
+              <option>Material escolar</option>
+              <option>Outros</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro-data">Data de Encontro</label>
+            <input type="date" id="filtro-data" />
+          </div>
+          <div>
+            <label for="filtro-status">Status</label>
+            <select id="filtro-status">
+              <option value="">Selecione o status</option>
+              <option>PENDENTE</option>
+              <option>ENCONTRADO</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="destaque">
+        <div id="contador-itens" class="estilo"></div>
+        <!-- Adicionando container responsivo para a tabela -->
+        <div class="tabela-container">
+          <table id="tabela-registros">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Local</th>
+                <th>Categoria</th>
+                <th>Data de Encontro</th>
+                <th>Status</th>
+                <th>Detalhes</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="registros-cards"></div>
+
+        <div class="pagination" id="paginacao"></div>
+      </div>
+
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <h3>Detalhes do Item</h3>
+          <div class="popup-box">
+            <label>Nome do Produto:</label><span id="popup-nome"></span><br />
+            <label>Local:</label><span id="popup-local"></span><br />
+            <label>Categoria:</label><span id="popup-categoria"></span><br />
+            <label>Descrição do Produto:</label
+            ><span id="popup-descricao"></span><br />
+            <label>Data de Encontro:</label><span id="popup-data"></span><br />
+            <button id="fechar-popup">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="Adm - pagina registro de item/registros.js"></script>
+    <script src="comum.js"></script>
+  </body>
+</html>
